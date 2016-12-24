@@ -53,8 +53,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htk-Wz-xr3">
-                                <rect key="frame" x="-4" y="264" width="328" height="216"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htk-Wz-xr3">
+                                <rect key="frame" x="0.0" y="264" width="320" height="216"/>
                             </pickerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-bj-Q5e">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
