@@ -13,6 +13,8 @@
 		E514C4BB1E0EB87C00E09817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E514C4B91E0EB87C00E09817 /* Main.storyboard */; };
 		E514C4BD1E0EB87C00E09817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BC1E0EB87C00E09817 /* Assets.xcassets */; };
 		E514C4C01E0EB87C00E09817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BE1E0EB87C00E09817 /* LaunchScreen.storyboard */; };
+		E514C4CA1E0EB8AF00E09817 /* BqTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4C91E0EB8AF00E09817 /* BqTimer.m */; };
+		E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4CD1E0EB94900E09817 /* UIViewController+Bq.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		E514C4BC1E0EB87C00E09817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E514C4BF1E0EB87C00E09817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E514C4C11E0EB87C00E09817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E514C4C81E0EB8AF00E09817 /* BqTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BqTimer.h; sourceTree = "<group>"; };
+		E514C4C91E0EB8AF00E09817 /* BqTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BqTimer.m; sourceTree = "<group>"; };
+		E514C4CC1E0EB94900E09817 /* UIViewController+Bq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Bq.h"; sourceTree = "<group>"; };
+		E514C4CD1E0EB94900E09817 /* UIViewController+Bq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Bq.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 		E514C4AF1E0EB87C00E09817 /* BqTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E514C4CB1E0EB94900E09817 /* category */,
+				E514C4C71E0EB8AF00E09817 /* BqTimer */,
 				E514C4B31E0EB87C00E09817 /* AppDelegate.h */,
 				E514C4B41E0EB87C00E09817 /* AppDelegate.m */,
 				E514C4B61E0EB87C00E09817 /* ViewController.h */,
@@ -77,6 +85,24 @@
 				E514C4B11E0EB87C00E09817 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E514C4C71E0EB8AF00E09817 /* BqTimer */ = {
+			isa = PBXGroup;
+			children = (
+				E514C4C81E0EB8AF00E09817 /* BqTimer.h */,
+				E514C4C91E0EB8AF00E09817 /* BqTimer.m */,
+			);
+			path = BqTimer;
+			sourceTree = "<group>";
+		};
+		E514C4CB1E0EB94900E09817 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				E514C4CC1E0EB94900E09817 /* UIViewController+Bq.h */,
+				E514C4CD1E0EB94900E09817 /* UIViewController+Bq.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E514C4CA1E0EB8AF00E09817 /* BqTimer.m in Sources */,
 				E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */,
 				E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */,
+				E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */,
 				E514C4B21E0EB87C00E09817 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BqTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.BqTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BqTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.BqTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

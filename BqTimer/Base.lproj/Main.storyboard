@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEY-pS-CVO">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="bBu-jd-Qm7">
+                                        <connections>
+                                            <segue destination="C5N-XX-v4Z" kind="show" id="fbk-3N-zMd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eEY-pS-CVO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3ZL-oX-AZ1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eEY-pS-CVO" secondAttribute="bottom" id="Csj-5B-sBC"/>
+                            <constraint firstAttribute="trailing" secondItem="eEY-pS-CVO" secondAttribute="trailing" id="P2S-dp-gDk"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="252" y="360"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IQn-Ro-gql">
+            <objects>
+                <viewController id="C5N-XX-v4Z" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aMD-hC-RsY"/>
+                        <viewControllerLayoutGuide type="bottom" id="azS-K0-k2t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uX0-74-7Cy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htk-Wz-xr3">
+                                <rect key="frame" x="-4" y="264" width="328" height="216"/>
+                            </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-bj-Q5e">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="开始" id="j1T-bu-CIu">
+                                        <connections>
+                                            <action selector="startTimer:" destination="C5N-XX-v4Z" id="b97-5R-tVQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="取消" id="HLW-PY-NOV">
+                                        <connections>
+                                            <action selector="stopTimer:" destination="C5N-XX-v4Z" id="XDM-12-H2c"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-7e-AXa">
+                                <rect key="frame" x="142" y="221" width="37" height="37"/>
+                                <color key="color" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iTV-7e-AXa" firstAttribute="centerY" secondItem="uX0-74-7Cy" secondAttribute="centerY" id="4e0-h4-7yn"/>
+                            <constraint firstItem="YQc-bj-Q5e" firstAttribute="leading" secondItem="uX0-74-7Cy" secondAttribute="leading" id="6FM-h1-uGl"/>
+                            <constraint firstItem="htk-Wz-xr3" firstAttribute="leading" secondItem="uX0-74-7Cy" secondAttribute="leading" id="QPn-5f-ekw"/>
+                            <constraint firstAttribute="trailing" secondItem="htk-Wz-xr3" secondAttribute="trailing" id="WHq-CS-eQs"/>
+                            <constraint firstItem="azS-K0-k2t" firstAttribute="top" secondItem="htk-Wz-xr3" secondAttribute="bottom" id="bfG-WO-rl8"/>
+                            <constraint firstAttribute="trailing" secondItem="YQc-bj-Q5e" secondAttribute="trailing" id="qZx-Jg-YmS"/>
+                            <constraint firstItem="azS-K0-k2t" firstAttribute="top" secondItem="YQc-bj-Q5e" secondAttribute="bottom" id="w77-Dg-nbG"/>
+                            <constraint firstItem="iTV-7e-AXa" firstAttribute="centerX" secondItem="uX0-74-7Cy" secondAttribute="centerX" id="x1t-O3-nT4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="iTV-7e-AXa" id="UKG-65-MPU"/>
+                        <outlet property="pickView" destination="htk-Wz-xr3" id="0no-LO-fTL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZs-vG-XFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="977"/>
         </scene>
     </scenes>
 </document>
