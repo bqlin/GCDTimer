@@ -1,14 +1,13 @@
 //
-//  BqTimer.m
-//  BqTimer
+//  PLVTimer.m
+//  PLVTimer
 //
 //  Created by LinBq on 16/12/23.
 //  Copyright © 2016年 POLYV. All rights reserved.
 //
 
-#import "BqTimer.h"
+#import "PLVTimer.h"
 
-/// 创建GCD定时器
 dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, dispatch_block_t block){
 	dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
 	if (timer){
@@ -19,14 +18,15 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 	return timer;
 }
 
-@interface BqTimer ()
+@interface PLVTimer ()
 
 /// GCD 计时器
-@property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, assign) dispatch_source_t timer;
 
 @end
 
-@implementation BqTimer
+@implementation PLVTimer
+
 #pragma mark - dealloc & init
 - (void)dealloc{
 	NSLog(@"%s", __FUNCTION__);
@@ -46,14 +46,19 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 }
 
 #pragma mark 重复操作
-+ (instancetype)repeatWithBlock:(void (^)())repeatBlock{
-	return [[self alloc] initWithRepeatBlock:repeatBlock];
++ (instancetype)repeatWithBlock:(void (^)(void))repeatBlock{
+	return [self repeatWithInterval:1.0 repeatBlock:repeatBlock];
 }
-- (instancetype)initWithRepeatBlock:(void (^)())repeatBlock{
-	if (self = [super init]) {
-		[self repeatWithBlock:repeatBlock];
-	}
-	return self;
+
++ (instancetype)repeatWithInterval:(double)interval repeatBlock:(void (^)(void))repeatBlock {
+	PLVTimer *repeat = [[self alloc] init];
+	dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	repeat.currentInterval = 0;
+	repeat.timer = CreateDispatchTimer(interval, globalQueue, ^{
+		repeat.currentInterval += interval;
+		if (repeatBlock) repeatBlock();
+	});
+	return repeat;
 }
 
 #pragma mark 自定义定时器
@@ -84,12 +89,6 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 	return self;
 }
 
-/// 每秒回调
-- (void)repeatWithBlock:(void (^)())repeatBlock{
-	dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-	self.timer = CreateDispatchTimer(1, globalQueue, repeatBlock);
-}
-
 /// 倒计时
 - (void)countdownWithSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock{
 	__block long remainSecond = second;
@@ -113,4 +112,5 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 		remainSecond --;
 	});
 }
+
 @end

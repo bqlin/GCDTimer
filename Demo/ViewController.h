@@ -1,6 +1,6 @@
 //
 //  ViewController.h
-//  BqTimer
+//  PLVTimer
 //
 //  Created by LinBq on 16/12/24.
 //  Copyright © 2016年 POLYV. All rights reserved.
