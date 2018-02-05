@@ -28,10 +28,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 @implementation PLVTimer
 
 #pragma mark - dealloc & init
-- (void)dealloc{
-	NSLog(@"%s", __FUNCTION__);
-}
-
+- (void)dealloc{}
 
 #pragma mark - 外部接口
 #pragma mark 倒计时
