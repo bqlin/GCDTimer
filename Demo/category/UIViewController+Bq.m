@@ -10,11 +10,11 @@
 
 @implementation UIViewController (Bq)
 
-- (void)dealloc{
+- (void)dealloc {
 //	NSLog(@"%s", __FUNCTION__);
 }
 
-- (UIButton *)backButton{
+- (UIButton *)backButton {
 	UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
 	[backBtn setTitle:@"返回" forState:UIControlStateNormal];
 	[self.view addSubview:backBtn];

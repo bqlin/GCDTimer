@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-- (void)dealloc{
+- (void)dealloc {
 	NSLog(@"%s", __FUNCTION__);
 }
 
@@ -31,7 +31,7 @@
 	[self setupUI];
 }
 
-- (void)setupUI{
+- (void)setupUI {
 	self.pickView.dataSource = self;
 	self.pickView.delegate = self;
 	
@@ -41,11 +41,11 @@
 	[backBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)dismiss{
+- (void)dismiss {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 	self.countSecend = 10;
 	[self.pickView reloadComponent:0];
 	[self.activityIndicator startAnimating];
@@ -53,7 +53,7 @@
 	[GCDTimer countdownWithSecond:self.countSecend countBlock:^(long remainSecond) {
 		NSLog(@"剩余时间 %lds", remainSecond);
 		[self.pickView selectRow:remainSecond - 1 inComponent:0 animated:YES];;
-		if (remainSecond < 1){
+		if (remainSecond < 1) {
 			NSLog(@"毕");
 			[self.activityIndicator stopAnimating];
 		}
@@ -75,16 +75,16 @@
 }
 
 #pragma mark - UIPickerViewDataSource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
 	return 1;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 	return self.countSecend;
 }
 
 #pragma mark - UIPickerViewDelegate
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
 	return [NSString stringWithFormat:@"%ld", row];
 }
 
