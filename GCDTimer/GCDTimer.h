@@ -1,6 +1,6 @@
 //
-//  PLVTimer.h
-//  PLVTimer
+//  GCDTimer.h
+//  GCDTimer
 //
 //  Created by LinBq on 16/12/23.
 //  Copyright © 2016年 POLYV. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PLVTimer : NSObject
+@interface GCDTimer : NSObject
 
 /// 当前时间
 @property (nonatomic, assign) NSTimeInterval currentInterval;
@@ -21,7 +21,7 @@
  *  @param second     倒计时长
  *  @param countBlock 倒数执行回调
  *
- *  @return PLVTimer 对象
+ *  @return GCDTimer 对象
  */
 + (instancetype)countdownWithSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock;
 
@@ -34,7 +34,7 @@
  *
  *  @param repeatBlock 每秒回调
  *
- *  @return PLVTimer 对象
+ *  @return GCDTimer 对象
  */
 + (instancetype)repeatWithBlock:(void (^)(void))repeatBlock;
 + (instancetype)repeatWithInterval:(double)interval repeatBlock:(void (^)(void))repeatBlock;
@@ -47,7 +47,7 @@
  *  @param second     执行时长
  *  @param countBlock 执行回调
  *
- *  @return PLVTimer 对象
+ *  @return GCDTimer 对象
  */
 + (instancetype)timerWithInterval:(double)interval dispatchQueue:(dispatch_queue_t)queue countdownSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock;
 

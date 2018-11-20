@@ -1,12 +1,12 @@
 //
-//  PLVTimer.m
-//  PLVTimer
+//  GCDTimer.m
+//  GCDTimer
 //
 //  Created by LinBq on 16/12/23.
 //  Copyright © 2016年 POLYV. All rights reserved.
 //
 
-#import "PLVTimer.h"
+#import "GCDTimer.h"
 
 dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, dispatch_block_t block){
 	dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -18,14 +18,14 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 	return timer;
 }
 
-@interface PLVTimer ()
+@interface GCDTimer ()
 
 /// GCD 计时器
-@property (nonatomic, assign) dispatch_source_t timer;
+@property (nonatomic, strong) dispatch_source_t timer;
 
 @end
 
-@implementation PLVTimer
+@implementation GCDTimer
 
 #pragma mark - dealloc & init
 - (void)dealloc{}
@@ -48,7 +48,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 }
 
 + (instancetype)repeatWithInterval:(double)interval repeatBlock:(void (^)(void))repeatBlock {
-	PLVTimer *repeat = [[self alloc] init];
+	GCDTimer *repeat = [[self alloc] init];
 	dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	repeat.currentInterval = 0;
 	repeat.timer = CreateDispatchTimer(interval, globalQueue, ^{

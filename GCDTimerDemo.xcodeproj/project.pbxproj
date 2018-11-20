@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		035980561FCF07B1002FD945 /* PLVTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 035980541FCF07B0002FD945 /* PLVTimer.m */; };
+		035980561FCF07B1002FD945 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 035980541FCF07B0002FD945 /* GCDTimer.m */; };
 		E514C4B21E0EB87C00E09817 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B11E0EB87C00E09817 /* main.m */; };
 		E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B41E0EB87C00E09817 /* AppDelegate.m */; };
 		E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B71E0EB87C00E09817 /* ViewController.m */; };
@@ -18,9 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		035980541FCF07B0002FD945 /* PLVTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLVTimer.m; sourceTree = "<group>"; };
-		035980551FCF07B0002FD945 /* PLVTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLVTimer.h; sourceTree = "<group>"; };
-		E514C4AD1E0EB87C00E09817 /* PLVTimerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLVTimerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		035980541FCF07B0002FD945 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
+		035980551FCF07B0002FD945 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		E514C4AD1E0EB87C00E09817 /* GCDTimerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDTimerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E514C4B11E0EB87C00E09817 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E514C4B31E0EB87C00E09817 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E514C4B41E0EB87C00E09817 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,19 +45,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		035980531FCF07B0002FD945 /* PLVTimer */ = {
+		035980531FCF07B0002FD945 /* GCDTimer */ = {
 			isa = PBXGroup;
 			children = (
-				035980541FCF07B0002FD945 /* PLVTimer.m */,
-				035980551FCF07B0002FD945 /* PLVTimer.h */,
+				035980551FCF07B0002FD945 /* GCDTimer.h */,
+				035980541FCF07B0002FD945 /* GCDTimer.m */,
 			);
-			path = PLVTimer;
+			path = GCDTimer;
 			sourceTree = "<group>";
 		};
 		E514C4A41E0EB87C00E09817 = {
 			isa = PBXGroup;
 			children = (
-				035980531FCF07B0002FD945 /* PLVTimer */,
+				035980531FCF07B0002FD945 /* GCDTimer */,
 				E514C4AF1E0EB87C00E09817 /* Demo */,
 				E514C4AE1E0EB87C00E09817 /* Products */,
 			);
@@ -66,7 +66,7 @@
 		E514C4AE1E0EB87C00E09817 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E514C4AD1E0EB87C00E09817 /* PLVTimerDemo.app */,
+				E514C4AD1E0EB87C00E09817 /* GCDTimerDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E514C4AC1E0EB87C00E09817 /* PLVTimerDemo */ = {
+		E514C4AC1E0EB87C00E09817 /* GCDTimerDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E514C4C41E0EB87C00E09817 /* Build configuration list for PBXNativeTarget "PLVTimerDemo" */;
+			buildConfigurationList = E514C4C41E0EB87C00E09817 /* Build configuration list for PBXNativeTarget "GCDTimerDemo" */;
 			buildPhases = (
 				E514C4A91E0EB87C00E09817 /* Sources */,
 				E514C4AA1E0EB87C00E09817 /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = PLVTimerDemo;
+			name = GCDTimerDemo;
 			productName = BqTimer;
-			productReference = E514C4AD1E0EB87C00E09817 /* PLVTimerDemo.app */;
+			productReference = E514C4AD1E0EB87C00E09817 /* GCDTimerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,14 +132,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = POLYV;
+				ORGANIZATIONNAME = Bq;
 				TargetAttributes = {
 					E514C4AC1E0EB87C00E09817 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
-			buildConfigurationList = E514C4A81E0EB87C00E09817 /* Build configuration list for PBXProject "PLVTimerDemo" */;
+			buildConfigurationList = E514C4A81E0EB87C00E09817 /* Build configuration list for PBXProject "GCDTimerDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E514C4AC1E0EB87C00E09817 /* PLVTimerDemo */,
+				E514C4AC1E0EB87C00E09817 /* GCDTimerDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -175,7 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035980561FCF07B1002FD945 /* PLVTimer.m in Sources */,
+				035980561FCF07B1002FD945 /* GCDTimer.m in Sources */,
 				E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */,
 				E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */,
 				E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */,
@@ -292,7 +292,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.PLVTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = bq.GCDTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -304,7 +304,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polyv.PLVTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = bq.GCDTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -312,7 +312,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E514C4A81E0EB87C00E09817 /* Build configuration list for PBXProject "PLVTimerDemo" */ = {
+		E514C4A81E0EB87C00E09817 /* Build configuration list for PBXProject "GCDTimerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E514C4C21E0EB87C00E09817 /* Debug */,
@@ -321,7 +321,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E514C4C41E0EB87C00E09817 /* Build configuration list for PBXNativeTarget "PLVTimerDemo" */ = {
+		E514C4C41E0EB87C00E09817 /* Build configuration list for PBXNativeTarget "GCDTimerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E514C4C51E0EB87C00E09817 /* Debug */,
