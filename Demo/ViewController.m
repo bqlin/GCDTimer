@@ -24,6 +24,7 @@
 
 - (void)dealloc {
 	NSLog(@"%s", __FUNCTION__);
+    [_countdown cancel];
 }
 
 - (void)viewDidLoad {
@@ -46,28 +47,41 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%s", __FUNCTION__);
+    [_countdown fire];
+    
+    return;
 	self.countSecend = 10;
 	[self.pickView reloadComponent:0];
 	[self.activityIndicator startAnimating];
 	// 有结束点的定时器不需要被持有
-	[GCDTimer countdownWithSecond:self.countSecend countBlock:^(long remainSecond) {
-		NSLog(@"剩余时间 %lds", remainSecond);
-		[self.pickView selectRow:remainSecond - 1 inComponent:0 animated:YES];;
-		if (remainSecond < 1) {
-			NSLog(@"毕");
-			[self.activityIndicator stopAnimating];
-		}
-	}];
+//    [GCDTimer countdownWithSecond:self.countSecend countBlock:^(long remainSecond) {
+//        NSLog(@"剩余时间 %lds", remainSecond);
+//        [self.pickView selectRow:remainSecond - 1 inComponent:0 animated:YES];;
+//        if (remainSecond < 1) {
+//            NSLog(@"毕");
+//            [self.activityIndicator stopAnimating];
+//        }
+//    }];
 }
 
 - (IBAction)startTimer:(id)sender {
+    NSLog(@"%s", __FUNCTION__);
+    GCDTimer *countdownTimer = [[GCDTimer alloc] initWithDispatchQueue:nil];
+    countdownTimer.enableSelfRetain = YES;
+    [countdownTimer countdownWithTime:5 countdownHandler:^(GCDTimer *timer) {
+        NSLog(@"timer time: %@", @(timer.currentTime));
+    } fire:YES];
+//    _countdown = countdownTimer;
+    
+    return;
 	__block long i = 0;
 	// 没有结束点的定时器一定要被持有
 	// 且当该控制器生命周期结束，定时器也将被销毁
-	self.countdown = [GCDTimer repeatWithBlock:^{
-		NSLog(@"%02ld", i);
-		i++;
-	}];
+//    self.countdown = [GCDTimer repeatWithBlock:^{
+//        NSLog(@"%02ld", i);
+//        i++;
+//    }];
 }
 - (IBAction)stopTimer:(id)sender {
 	[self.countdown cancel];

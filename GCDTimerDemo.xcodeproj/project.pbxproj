@@ -15,6 +15,9 @@
 		E514C4BD1E0EB87C00E09817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BC1E0EB87C00E09817 /* Assets.xcassets */; };
 		E514C4C01E0EB87C00E09817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BE1E0EB87C00E09817 /* LaunchScreen.storyboard */; };
 		E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4CD1E0EB94900E09817 /* UIViewController+Bq.m */; };
+		FBE15BC021A549630077DDD5 /* CountdownExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE15BBF21A549630077DDD5 /* CountdownExpViewController.m */; };
+		FBE15BC321A549730077DDD5 /* RepeatExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE15BC221A549730077DDD5 /* RepeatExpViewController.m */; };
+		FBE15BC621A5498E0077DDD5 /* DelayExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE15BC521A5498E0077DDD5 /* DelayExpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		E514C4C11E0EB87C00E09817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E514C4CC1E0EB94900E09817 /* UIViewController+Bq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Bq.h"; sourceTree = "<group>"; };
 		E514C4CD1E0EB94900E09817 /* UIViewController+Bq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Bq.m"; sourceTree = "<group>"; };
+		FBE15BBE21A549630077DDD5 /* CountdownExpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountdownExpViewController.h; sourceTree = "<group>"; };
+		FBE15BBF21A549630077DDD5 /* CountdownExpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountdownExpViewController.m; sourceTree = "<group>"; };
+		FBE15BC121A549730077DDD5 /* RepeatExpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepeatExpViewController.h; sourceTree = "<group>"; };
+		FBE15BC221A549730077DDD5 /* RepeatExpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepeatExpViewController.m; sourceTree = "<group>"; };
+		FBE15BC421A5498E0077DDD5 /* DelayExpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelayExpViewController.h; sourceTree = "<group>"; };
+		FBE15BC521A5498E0077DDD5 /* DelayExpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelayExpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +88,12 @@
 				E514C4B41E0EB87C00E09817 /* AppDelegate.m */,
 				E514C4B61E0EB87C00E09817 /* ViewController.h */,
 				E514C4B71E0EB87C00E09817 /* ViewController.m */,
+				FBE15BBE21A549630077DDD5 /* CountdownExpViewController.h */,
+				FBE15BBF21A549630077DDD5 /* CountdownExpViewController.m */,
+				FBE15BC121A549730077DDD5 /* RepeatExpViewController.h */,
+				FBE15BC221A549730077DDD5 /* RepeatExpViewController.m */,
+				FBE15BC421A5498E0077DDD5 /* DelayExpViewController.h */,
+				FBE15BC521A5498E0077DDD5 /* DelayExpViewController.m */,
 				E514C4B91E0EB87C00E09817 /* Main.storyboard */,
 				E514C4BC1E0EB87C00E09817 /* Assets.xcassets */,
 				E514C4BE1E0EB87C00E09817 /* LaunchScreen.storyboard */,
@@ -136,6 +151,7 @@
 				TargetAttributes = {
 					E514C4AC1E0EB87C00E09817 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = V7WL667MJM;
 					};
 				};
 			};
@@ -175,11 +191,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE15BC021A549630077DDD5 /* CountdownExpViewController.m in Sources */,
 				035980561FCF07B1002FD945 /* GCDTimer.m in Sources */,
 				E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */,
 				E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */,
 				E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */,
 				E514C4B21E0EB87C00E09817 /* main.m in Sources */,
+				FBE15BC621A5498E0077DDD5 /* DelayExpViewController.m in Sources */,
+				FBE15BC321A549730077DDD5 /* RepeatExpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7WL667MJM;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -301,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7WL667MJM;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
