@@ -61,6 +61,7 @@
         weakSelf.countLabel.text = @(timer.currentTime).description;
     }];
 }
+
 - (IBAction)stopAction:(UIBarButtonItem *)sender {
     [_repeatTimer cancel];
     _countLabel.text = @"停止";

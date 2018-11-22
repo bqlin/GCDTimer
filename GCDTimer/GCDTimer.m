@@ -16,6 +16,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
 /// GCD 计时器
 @property (nonatomic, strong, readonly) dispatch_source_t timer;
 
+/// 回调任务弱引用
 @property (nonatomic, weak) GCDTimerCallbackBlock callbackHandler;
 
 @end
@@ -76,7 +77,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
     if (_currentTime <= 0) [self cancel];
 }
 
-#pragma mark - repeat
+#pragma mark repeat
 
 - (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire {
     if (!_valid) {
@@ -103,37 +104,6 @@ static const double kDefaultIntervalInSeconds = 1.0;
     if (repeatActionHandler) repeatActionHandler(self);
 }
 
-#pragma mark - delay
-
-- (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandler {
-    if (!_valid) {
-        NSLog(@"GCDTimer invalid, please rebuild timer.");
-    }
-    if (!delayActionHandler) return;
-    
-    _currentTime = delayInSeconds;
-    __weak typeof(self) weakSelf = self;
-    void (^actionHandler)(void) = _enableSelfRetain ? ^(){
-        [self _delayActionHandler:delayActionHandler];
-    } : ^(){
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf _delayActionHandler:delayActionHandler];
-    };
-    _callbackHandler = delayActionHandler;
-    
-    [self.class setupTimer:_timer actionHandler:actionHandler];
-    [self fire];
-}
-
-- (void)_delayActionHandler:(void (^)(GCDTimer *timer))actionHandler {
-    _currentTime -= _timerInterval;
-    if (_currentTime <= 0) {
-        // !!!: 可能存在顺序问题
-        [self cancel];
-        if (actionHandler) actionHandler(self);
-    }
-}
-
 #pragma mark - util
 
 + (dispatch_source_t)createTimerWithDispatchQueue:(dispatch_queue_t)dispatchQueue {
@@ -157,9 +127,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
     dispatch_resume(timer);
 }
 
-#pragma mark - public
-
-#pragma mark property
+#pragma mark - property
 
 - (void)setTimerInterval:(NSTimeInterval)timerInterval {
     _timerInterval = timerInterval;
@@ -171,7 +139,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
     dispatch_source_set_timer(_timer, dispatch_time(DISPATCH_TIME_NOW, _timerInterval * NSEC_PER_SEC), _timerInterval * NSEC_PER_SEC, _timerLeeway * NSEC_PER_SEC);
 }
 
-#pragma mark timer operation
+#pragma mark - timer operation
 
 - (void)fire {
     if (!_timer) return;
@@ -191,7 +159,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
     _valid = NO;
 }
 
-#pragma mark convenience
+#pragma mark - convenience
 
 + (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds interval:(NSTimeInterval)intervalInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler {
     GCDTimer *timer = [[self alloc] initWithDispatchQueue:nil];
