@@ -3,7 +3,7 @@
 //  GCDTimer
 //
 //  Created by LinBq on 16/12/23.
-//  Copyright © 2016年 POLYV. All rights reserved.
+//  Copyright © 2016年 Bq. All rights reserved.
 //
 
 #import "GCDTimer.h"
