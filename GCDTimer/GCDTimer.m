@@ -38,6 +38,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
         [self commonInit];
         _timer = [self.class createTimerWithDispatchQueue:dispatchQueue];
         [self.class setupTimer:_timer interval:_timerInterval leeway:_timerLeeway];
+        _valid = YES;
     }
     return self;
 }
@@ -50,7 +51,9 @@ static const double kDefaultIntervalInSeconds = 1.0;
 #pragma mark count down
 
 - (void)countdownWithTime:(NSTimeInterval)countdownInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler fire:(BOOL)fire {
-    if (!_timer) return;
+    if (!_valid) {
+        NSLog(@"GCDTimer invalid, please rebuild timer.");
+    }
     if (!countdownHandler) return;
     
     _currentTime = countdownInSeconds;
@@ -76,7 +79,9 @@ static const double kDefaultIntervalInSeconds = 1.0;
 #pragma mark - repeat
 
 - (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire {
-    if (!_timer) return;
+    if (!_valid) {
+        NSLog(@"GCDTimer invalid, please rebuild timer.");
+    }
     if (!repeatActionHandler) return;
     
     _currentTime = .0;
@@ -101,7 +106,9 @@ static const double kDefaultIntervalInSeconds = 1.0;
 #pragma mark - delay
 
 - (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandler {
-    if (!_timer) return;
+    if (!_valid) {
+        NSLog(@"GCDTimer invalid, please rebuild timer.");
+    }
     if (!delayActionHandler) return;
     
     _currentTime = delayInSeconds;
@@ -235,26 +242,26 @@ static const double kDefaultIntervalInSeconds = 1.0;
     if (!_timer) return;
     dispatch_source_cancel(_timer);
     _timer = nil;
+    _running = NO;
+    _valid = NO;
 }
 
 #pragma mark convenience
 
-+ (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler {
++ (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds interval:(NSTimeInterval)intervalInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler {
     GCDTimer *timer = [[self alloc] initWithDispatchQueue:nil];
+    timer.timerInterval = intervalInSeconds;
     timer.enableSelfRetain = YES;
     [timer countdownWithTime:countdownInSeconds countdownHandler:countdownHandler fire:YES];
     return timer;
 }
 
-+ (instancetype)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler {
++ (instancetype)repeatWithInterval:(NSTimeInterval)intervalInSeconds actionHandler:(GCDTimerCallbackBlock)repeatActionHandler {
     GCDTimer *timer = [[self alloc] initWithDispatchQueue:nil];
+    timer.timerInterval = intervalInSeconds;
     timer.enableSelfRetain = YES;
     [timer repeatWithActionHandler:repeatActionHandler fire:YES];
     return timer;
 }
-
-@end
-
-@implementation GCDTimer (Public)
 
 @end

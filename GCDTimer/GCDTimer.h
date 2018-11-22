@@ -11,26 +11,65 @@
 @class GCDTimer;
 typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
 
+/**
+ GCD 定时器
+ */
 @interface GCDTimer : NSObject
 
+/// 定时器是否运行，定时器执行时为 YES，否则为 NO
 @property (nonatomic, assign, readonly) BOOL running;
+
+/// 定时器是否可用，定时器未创建或取消后为 NO，此时不可再对定时器进行操作，否则为 YES
+@property (nonatomic, assign, readonly) BOOL valid;
 
 /// 当前运行累计时间（单位：秒）
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
+/// 定时器指定间隔（单位：秒），默认为 1s
 @property (nonatomic, assign) NSTimeInterval timerInterval;
+
+/// 定时器指定精度（单位：秒），默认为 0，即为最精确
 @property (nonatomic, assign) NSTimeInterval timerLeeway;
 
+/// 是否开启自引用。
+/// 开启后在执行任务时进行自引用，在任务执行过程中不会被销毁，仅当取消后且无强引用定时器对象才会被销毁；否则需要外部对定时器对象进行强引用方可确保定时器任务执行。
 @property (nonatomic, assign) BOOL enableSelfRetain;
 
 - (instancetype)init __attribute__((unavailable("init not available, call other initialization method instead")));
 + (instancetype)new __attribute__((unavailable("new not available, call other initialization method instead")));
 
-- (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue;
-- (void)countdownWithTime:(NSTimeInterval)countdownInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler fire:(BOOL)fire;
-- (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire;
-- (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandle;
+/**
+ 创建定时器对象
 
+ @param dispatchQueue 定时器任务执行队列，传入 ni 则使用主队列
+ @return 定时器对象
+ */
+- (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue;
+
+/**
+ 创建倒计时定时器对象
+
+ @param countdownInSeconds 倒计时（单位：秒）
+ @param countdownHandler 定时器任务
+ @param fire 是否立即执行
+ */
+- (void)countdownWithTime:(NSTimeInterval)countdownInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler fire:(BOOL)fire;
+
+/**
+ 便利创建自引用定时器对象
+ 
+ 若不对定时器对象强引用，则其自动在倒计时归零时自动销毁。
+
+ @param countdownInSeconds 倒计时（单位：秒）
+ @param intervalInSeconds 执行间隔
+ @param countdownHandler 定时器任务
+ @return 定时器对象
+ */
++ (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds interval:(NSTimeInterval)intervalInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler;
+
+/**
+ 立即启动定时器
+ */
 - (void)fire;
 
 /**
@@ -38,46 +77,8 @@ typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
  */
 - (void)cancel;
 
-+ (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler;
-
-///**
-// *  快速创建倒计时对象
-// *
-// *  注意：回调在主队列中同步执行
-// *
-// *  @param second     倒计时长
-// *  @param countBlock 倒数执行回调
-// *
-// *  @return GCDTimer 对象
-// */
-//+ (instancetype)countdownWithSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock;
-//
-///**
-// *  快速创建每秒操作定时器对象
-// *
-// *  注意：
-// *  1. 回调在全局并发队列中执行；
-// *  2. 调用者必须持有该对象，其生命周期随持有者；
-// *
-// *  @param repeatBlock 每秒回调
-// *
-// *  @return GCDTimer 对象
-// */
-//+ (instancetype)repeatWithBlock:(void (^)(void))repeatBlock;
-//+ (instancetype)repeatWithInterval:(double)interval repeatBlock:(void (^)(void))repeatBlock;
-//
-///**
-// *  快速创建自定义定时器
-// *
-// *  @param interval   执行时间间隔
-// *  @param queue      执行队列，若为空则在全局异步队列中执行
-// *  @param second     执行时长
-// *  @param countBlock 执行回调
-// *
-// *  @return GCDTimer 对象
-// */
-//+ (instancetype)timerWithInterval:(double)interval dispatchQueue:(dispatch_queue_t)queue countdownSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock;
-
-
+- (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire;
++ (instancetype)repeatWithInterval:(NSTimeInterval)intervalInSeconds actionHandler:(GCDTimerCallbackBlock)repeatActionHandler;
+- (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandle;
 
 @end
