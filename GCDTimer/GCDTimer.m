@@ -24,7 +24,7 @@ static const double kDefaultIntervalInSeconds = 1.0;
 @implementation GCDTimer
 
 - (void)dealloc {
-    NSLog(@"%p%s", self, __FUNCTION__);
+    //NSLog(@"%p%s", self, __FUNCTION__);
 }
 
 - (instancetype)init {
@@ -148,15 +148,20 @@ static const double kDefaultIntervalInSeconds = 1.0;
     if (_callbackHandler) _callbackHandler(self);
     [self.class resumeTimer:_timer];
     _running = YES;
-    NSLog(@"%p%s", self, __FUNCTION__);
+    //NSLog(@"%p%s", self, __FUNCTION__);
 }
 
 - (void)cancel {
     if (!_timer) return;
     dispatch_source_cancel(_timer);
+    
     _timer = nil;
     _running = NO;
     _valid = NO;
+    
+    if ([self.delegate respondsToSelector:@selector(gcdTimerDidCancel:)]) {
+        [self.delegate gcdTimerDidCancel:self];
+    }
 }
 
 #pragma mark - convenience

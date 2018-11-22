@@ -9,7 +9,7 @@
 #import "CountdownExpViewController.h"
 #import "GCDTimer.h"
 
-@interface CountdownExpViewController ()
+@interface CountdownExpViewController () <GCDTimerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *countdownTextField;
 @property (weak, nonatomic) IBOutlet UITextField *intervalTextField;
@@ -55,6 +55,7 @@
     //countdownTimer.enableSelfRetain = YES;
     _countdownTimer = countdownTimer;
     countdownTimer.timerInterval = countdownInterval;
+    countdownTimer.delegate = self;
     __weak typeof(self) weakSelf = self;
     [countdownTimer countdownWithTime:countdownTime countdownHandler:^(GCDTimer *timer) {
         weakSelf.countLabel.text = @(timer.currentTime).description;
@@ -70,6 +71,12 @@
 - (IBAction)stopAction:(UIBarButtonItem *)sender {
     [_countdownTimer cancel];
     _countLabel.text = @"停止";
+}
+
+#pragma mark - GCDTimerDelegate
+
+- (void)gcdTimerDidCancel:(GCDTimer *)timer {
+    NSLog(@"%s", __FUNCTION__);
 }
 
 @end

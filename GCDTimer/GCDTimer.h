@@ -11,10 +11,24 @@
 @class GCDTimer;
 typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
 
+@protocol GCDTimerDelegate <NSObject>
+@optional
+
+/**
+ 定时器取消回调
+
+ @param timer 定时器对象
+ */
+- (void)gcdTimerDidCancel:(GCDTimer *)timer;
+
+@end
+
 /**
  GCD 定时器
  */
 @interface GCDTimer : NSObject
+
+@property (nonatomic, weak) id<GCDTimerDelegate> delegate;
 
 /// 定时器是否运行，定时器执行时为 YES，否则为 NO
 @property (nonatomic, assign, readonly) BOOL running;
