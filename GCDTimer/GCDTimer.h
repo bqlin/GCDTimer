@@ -47,6 +47,16 @@ typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
 - (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue;
 
 /**
+ 立即启动定时器
+ */
+- (void)fire;
+
+/**
+ 取消定时器及其操作
+ */
+- (void)cancel;
+
+/**
  创建倒计时定时器对象
 
  @param countdownInSeconds 倒计时（单位：秒）
@@ -68,16 +78,22 @@ typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
 + (instancetype)countdownWithTime:(NSTimeInterval)countdownInSeconds interval:(NSTimeInterval)intervalInSeconds countdownHandler:(GCDTimerCallbackBlock)countdownHandler;
 
 /**
- 立即启动定时器
+ 创建重复定时器对象
+
+ @param repeatActionHandler 定时器任务
+ @param fire 是否立即执行
  */
-- (void)fire;
+- (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire;
 
 /**
- 取消定时器及其操作
- */
-- (void)cancel;
+ 便利创建自引用定时器对象
+ 
+ 需外部主动调用 -cancel 方法才能销毁定时器对象。
 
-- (void)repeatWithActionHandler:(GCDTimerCallbackBlock)repeatActionHandler fire:(BOOL)fire;
+ @param intervalInSeconds 执行间隔
+ @param repeatActionHandler 定时器任务
+ @return 定时器对象
+ */
 + (instancetype)repeatWithInterval:(NSTimeInterval)intervalInSeconds actionHandler:(GCDTimerCallbackBlock)repeatActionHandler;
 - (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandle;
 

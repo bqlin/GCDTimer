@@ -10,41 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEY-pS-CVO">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="action" id="bBu-jd-Qm7">
-                                        <connections>
-                                            <segue destination="C5N-XX-v4Z" kind="show" id="fbk-3N-zMd"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="eEY-pS-CVO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3ZL-oX-AZ1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eEY-pS-CVO" secondAttribute="bottom" id="Csj-5B-sBC"/>
-                            <constraint firstAttribute="trailing" secondItem="eEY-pS-CVO" secondAttribute="trailing" id="P2S-dp-gDk"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-193" y="738"/>
-        </scene>
         <!--GCDTimer-->
         <scene sceneID="3Cm-Ic-BbR">
             <objects>
@@ -177,14 +142,16 @@
                         <constraints>
                             <constraint firstItem="Wgk-Si-EXK" firstAttribute="centerY" secondItem="keH-Pj-NGw" secondAttribute="centerY" id="3hS-lE-mtG"/>
                             <constraint firstItem="keH-Pj-NGw" firstAttribute="leading" secondItem="MMK-gq-3pU" secondAttribute="leadingMargin" id="5Jp-cC-G2Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Wgk-Si-EXK" secondAttribute="trailing" constant="165.5" id="7Hf-CH-EDU"/>
                             <constraint firstItem="zaV-J0-Uhu" firstAttribute="centerY" secondItem="PR9-pn-BFv" secondAttribute="centerY" id="Cu6-3b-tjL"/>
                             <constraint firstItem="PR9-pn-BFv" firstAttribute="leading" secondItem="MMK-gq-3pU" secondAttribute="leadingMargin" id="ErQ-4e-8SB"/>
-                            <constraint firstItem="zaV-J0-Uhu" firstAttribute="leading" secondItem="PR9-pn-BFv" secondAttribute="trailing" constant="8" id="JuH-Ml-lAl"/>
+                            <constraint firstItem="zaV-J0-Uhu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PR9-pn-BFv" secondAttribute="trailing" constant="8" symbolic="YES" id="JuH-Ml-lAl"/>
                             <constraint firstItem="Wgk-Si-EXK" firstAttribute="top" secondItem="zaV-J0-Uhu" secondAttribute="bottom" constant="8" id="Lva-Ou-Yx4"/>
-                            <constraint firstItem="Wgk-Si-EXK" firstAttribute="leading" secondItem="keH-Pj-NGw" secondAttribute="trailing" constant="8" id="S8L-Yd-jlZ"/>
+                            <constraint firstItem="Wgk-Si-EXK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="keH-Pj-NGw" secondAttribute="trailing" constant="8" symbolic="YES" id="S8L-Yd-jlZ"/>
                             <constraint firstItem="zaV-J0-Uhu" firstAttribute="top" secondItem="ICL-9g-beL" secondAttribute="bottom" constant="8" id="Uea-so-8bj"/>
                             <constraint firstItem="keH-Pj-NGw" firstAttribute="width" secondItem="PR9-pn-BFv" secondAttribute="width" id="cqg-M3-iAJ"/>
                             <constraint firstItem="XYY-Vf-AkK" firstAttribute="centerY" secondItem="MMK-gq-3pU" secondAttribute="centerY" id="doH-QK-N2s"/>
+                            <constraint firstAttribute="trailing" secondItem="zaV-J0-Uhu" secondAttribute="trailing" constant="165.5" id="gI6-JB-TKw"/>
                             <constraint firstItem="XYY-Vf-AkK" firstAttribute="centerX" secondItem="MMK-gq-3pU" secondAttribute="centerX" id="iEf-wU-DwP"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="XYY-Vf-AkK" secondAttribute="width" constant="20" id="uiW-yn-wPn"/>
                         </constraints>
@@ -242,8 +209,56 @@
                     <view key="view" contentMode="scaleToFill" id="V58-jw-BH7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="间隔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14o-UG-Sk9">
+                                <rect key="frame" x="16" y="77" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="单位：秒" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCR-pc-R31">
+                                <rect key="frame" x="59" y="72" width="78.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改以上参数，点击“开始”创建并启动定时器；“停止”销毁定时器。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-ha-LPN">
+                                <rect key="frame" x="15" y="197" width="290" height="86"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="14o-UG-Sk9" firstAttribute="leading" secondItem="V58-jw-BH7" secondAttribute="leadingMargin" id="Aff-Kf-smo"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="ITH-ha-LPN" secondAttribute="width" constant="20" id="D6Y-5v-zps"/>
+                            <constraint firstItem="LCR-pc-R31" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="14o-UG-Sk9" secondAttribute="trailing" symbolic="YES" id="E4Y-cK-mEY"/>
+                            <constraint firstItem="ITH-ha-LPN" firstAttribute="centerY" secondItem="V58-jw-BH7" secondAttribute="centerY" id="Gwu-M4-eGX"/>
+                            <constraint firstAttribute="trailing" secondItem="LCR-pc-R31" secondAttribute="trailing" constant="182.5" id="Zou-DQ-9o5"/>
+                            <constraint firstItem="LCR-pc-R31" firstAttribute="centerY" secondItem="14o-UG-Sk9" secondAttribute="centerY" id="cnI-rM-BpF"/>
+                            <constraint firstItem="LCR-pc-R31" firstAttribute="top" secondItem="A7o-fR-mKE" secondAttribute="bottom" constant="8" id="pcL-9G-rwT"/>
+                            <constraint firstItem="ITH-ha-LPN" firstAttribute="centerX" secondItem="V58-jw-BH7" secondAttribute="centerX" id="tB5-Dm-gjZ"/>
+                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="开始" id="BWQ-A8-d55">
+                            <connections>
+                                <action selector="startAction:" destination="7mi-zL-ywz" id="Doc-EU-QkG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="停止" style="done" id="Ru5-Fu-HXD">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="stopAction:" destination="7mi-zL-ywz" id="KDZ-uK-ohO"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="countLabel" destination="ITH-ha-LPN" id="Wa1-9N-mEg"/>
+                        <outlet property="intervalTextField" destination="LCR-pc-R31" id="7XB-9s-gwL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBY-H1-d0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,62 +283,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dG-WY-9dS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-347" y="8"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="IQn-Ro-gql">
-            <objects>
-                <viewController id="C5N-XX-v4Z" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aMD-hC-RsY"/>
-                        <viewControllerLayoutGuide type="bottom" id="azS-K0-k2t"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uX0-74-7Cy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htk-Wz-xr3">
-                                <rect key="frame" x="0.0" y="264" width="320" height="216"/>
-                            </pickerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-bj-Q5e">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="开始" id="j1T-bu-CIu">
-                                        <connections>
-                                            <action selector="startTimer:" destination="C5N-XX-v4Z" id="b97-5R-tVQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="取消" id="HLW-PY-NOV">
-                                        <connections>
-                                            <action selector="stopTimer:" destination="C5N-XX-v4Z" id="XDM-12-H2c"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-7e-AXa">
-                                <rect key="frame" x="142" y="221" width="37" height="37"/>
-                                <color key="color" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="iTV-7e-AXa" firstAttribute="centerY" secondItem="uX0-74-7Cy" secondAttribute="centerY" id="4e0-h4-7yn"/>
-                            <constraint firstItem="YQc-bj-Q5e" firstAttribute="leading" secondItem="uX0-74-7Cy" secondAttribute="leading" id="6FM-h1-uGl"/>
-                            <constraint firstItem="htk-Wz-xr3" firstAttribute="leading" secondItem="uX0-74-7Cy" secondAttribute="leading" id="QPn-5f-ekw"/>
-                            <constraint firstAttribute="trailing" secondItem="htk-Wz-xr3" secondAttribute="trailing" id="WHq-CS-eQs"/>
-                            <constraint firstItem="azS-K0-k2t" firstAttribute="top" secondItem="htk-Wz-xr3" secondAttribute="bottom" id="bfG-WO-rl8"/>
-                            <constraint firstAttribute="trailing" secondItem="YQc-bj-Q5e" secondAttribute="trailing" id="qZx-Jg-YmS"/>
-                            <constraint firstItem="azS-K0-k2t" firstAttribute="top" secondItem="YQc-bj-Q5e" secondAttribute="bottom" id="w77-Dg-nbG"/>
-                            <constraint firstItem="iTV-7e-AXa" firstAttribute="centerX" secondItem="uX0-74-7Cy" secondAttribute="centerX" id="x1t-O3-nT4"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="iTV-7e-AXa" id="UKG-65-MPU"/>
-                        <outlet property="pickView" destination="htk-Wz-xr3" id="0no-LO-fTL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AZs-vG-XFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="252" y="977"/>
         </scene>
     </scenes>
 </document>

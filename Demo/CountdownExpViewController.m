@@ -52,7 +52,7 @@
     
     // 创建倒计时对象
     GCDTimer *countdownTimer = [[GCDTimer alloc] initWithDispatchQueue:nil];
-    countdownTimer.enableSelfRetain = YES;
+    //countdownTimer.enableSelfRetain = YES;
     _countdownTimer = countdownTimer;
     countdownTimer.timerInterval = countdownInterval;
     __weak typeof(self) weakSelf = self;

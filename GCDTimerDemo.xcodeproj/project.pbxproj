@@ -10,7 +10,6 @@
 		035980561FCF07B1002FD945 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 035980541FCF07B0002FD945 /* GCDTimer.m */; };
 		E514C4B21E0EB87C00E09817 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B11E0EB87C00E09817 /* main.m */; };
 		E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B41E0EB87C00E09817 /* AppDelegate.m */; };
-		E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E514C4B71E0EB87C00E09817 /* ViewController.m */; };
 		E514C4BB1E0EB87C00E09817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E514C4B91E0EB87C00E09817 /* Main.storyboard */; };
 		E514C4BD1E0EB87C00E09817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BC1E0EB87C00E09817 /* Assets.xcassets */; };
 		E514C4C01E0EB87C00E09817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E514C4BE1E0EB87C00E09817 /* LaunchScreen.storyboard */; };
@@ -27,8 +26,6 @@
 		E514C4B11E0EB87C00E09817 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E514C4B31E0EB87C00E09817 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E514C4B41E0EB87C00E09817 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E514C4B61E0EB87C00E09817 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E514C4B71E0EB87C00E09817 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E514C4BA1E0EB87C00E09817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E514C4BC1E0EB87C00E09817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E514C4BF1E0EB87C00E09817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,8 +83,6 @@
 				E514C4CB1E0EB94900E09817 /* category */,
 				E514C4B31E0EB87C00E09817 /* AppDelegate.h */,
 				E514C4B41E0EB87C00E09817 /* AppDelegate.m */,
-				E514C4B61E0EB87C00E09817 /* ViewController.h */,
-				E514C4B71E0EB87C00E09817 /* ViewController.m */,
 				FBE15BBE21A549630077DDD5 /* CountdownExpViewController.h */,
 				FBE15BBF21A549630077DDD5 /* CountdownExpViewController.m */,
 				FBE15BC121A549730077DDD5 /* RepeatExpViewController.h */,
@@ -193,7 +188,6 @@
 			files = (
 				FBE15BC021A549630077DDD5 /* CountdownExpViewController.m in Sources */,
 				035980561FCF07B1002FD945 /* GCDTimer.m in Sources */,
-				E514C4B81E0EB87C00E09817 /* ViewController.m in Sources */,
 				E514C4B51E0EB87C00E09817 /* AppDelegate.m in Sources */,
 				E514C4CE1E0EB94900E09817 /* UIViewController+Bq.m in Sources */,
 				E514C4B21E0EB87C00E09817 /* main.m in Sources */,
