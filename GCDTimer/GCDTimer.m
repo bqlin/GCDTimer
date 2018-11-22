@@ -134,61 +134,6 @@ static const double kDefaultIntervalInSeconds = 1.0;
     }
 }
 
-// -------------------------------------------------------------------------------------
-
-//- (void)createTimerWithInterval:(double)intervalInSeconds leeway:(double)leewayInSeconds dispatchQueue:(dispatch_queue_t)dispatchQueue actionHandler:(void (^)(void))actionHandler fire:(BOOL)fire {
-//    _timerLeeway = leewayInSeconds;
-//    _timerInterval = intervalInSeconds;
-//    if (!dispatchQueue) dispatchQueue = dispatch_get_main_queue();
-//
-//    _timer = [self.class createTimerWithDispatchQueue:dispatchQueue];
-//    [self.class setupTimer:_timer interval:_timerInterval leeway:_timerLeeway];
-//    [self.class setupTimer:_timer actionHandler:actionHandler];
-//    if (fire) [self fire];
-//}
-//
-//- (void)createCountdownTimerWithTime:(NSTimeInterval)countdownTime interval:(double)intervalInSeconds dispatchQueue:(dispatch_queue_t)dispatchQueue countdownHandler:(void (^)(GCDTimer *timer))countdownHandler fire:(BOOL)fire {
-//    if (!countdownHandler) return;
-//
-//    _currentTime = countdownTime;
-//
-//    __weak typeof(self) weakSelf = self;
-//    void (^actionHandler)(void) = _enableSelfRetain ? ^(){
-//        [self _countdownActionHandler:countdownHandler];
-//    } : ^(){
-//        __strong __typeof(weakSelf)strongSelf = weakSelf;
-//        [strongSelf _countdownActionHandler:countdownHandler];
-//    };
-//
-//    [self createTimerWithInterval:intervalInSeconds leeway:kDefaultLeewayInSeconds dispatchQueue:dispatchQueue actionHandler:actionHandler fire:fire];
-//}
-//
-//- (void)countdownWithSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock {
-//    __block long remainSecond = second;
-//    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    __weak typeof(self) weakSelf = self;
-//    [self createTimerWithInterval:kDefaultIntervalInSeconds leeway:kDefaultLeewayInSeconds dispatchQueue:globalQueue actionHandler:^{
-//        __strong __typeof(weakSelf)strongSelf = weakSelf;
-//        if (remainSecond <= 0) [strongSelf cancel];
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            countBlock(remainSecond);
-//        });
-//        remainSecond --;
-//    } fire:YES];
-//}
-//
-//- (void)timerWithInterval:(double)interval dispatchQueue:(dispatch_queue_t)queue countdownSecond:(long)second countBlock:(void (^)(long remainSecond))countBlock {
-//    __block long remainSecond = second;
-//    if (!queue) queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    __weak typeof(self) weakSelf = self;
-//    [self createTimerWithInterval:interval leeway:kDefaultLeewayInSeconds dispatchQueue:queue actionHandler:^{
-//        __strong __typeof(weakSelf)strongSelf = weakSelf;
-//        if (remainSecond <= 0) [strongSelf cancel];
-//        countBlock(remainSecond);
-//        remainSecond --;
-//    } fire:YES];
-//}
-
 #pragma mark - util
 
 + (dispatch_source_t)createTimerWithDispatchQueue:(dispatch_queue_t)dispatchQueue {

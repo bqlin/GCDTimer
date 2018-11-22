@@ -95,6 +95,5 @@ typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
  @return 定时器对象
  */
 + (instancetype)repeatWithInterval:(NSTimeInterval)intervalInSeconds actionHandler:(GCDTimerCallbackBlock)repeatActionHandler;
-- (void)delayWithTime:(NSTimeInterval)delayInSeconds actionHandler:(GCDTimerCallbackBlock)delayActionHandle;
 
 @end
