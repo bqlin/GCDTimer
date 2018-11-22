@@ -30,7 +30,7 @@ typedef void(^GCDTimerCallbackBlock)(GCDTimer *timer);
 
 @property (nonatomic, weak) id<GCDTimerDelegate> delegate;
 
-/// 定时器是否运行，定时器执行时为 YES，否则为 NO
+/// 定时器任务是否运行，定时器执行时为 YES，否则为 NO
 @property (nonatomic, assign, readonly) BOOL running;
 
 /// 定时器是否可用，定时器未创建或取消后为 NO，此时不可再对定时器进行操作，否则为 YES
